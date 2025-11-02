@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.sideloader.LocalPackageInstaller">
+  <grid id="27dc6" binding="LPIGUI" layout-manager="FormLayout">
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:d:grow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <colspec value="fill:d:grow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <colspec value="fill:118px:noGrow"/>
+    <colspec value="fill:max(d;4px):noGrow"/>
+    <colspec value="left:4dlu:noGrow"/>
+    <constraints>
+      <xy x="20" y="20" width="700" height="600"/>
+    </constraints>
+    <properties>
+      <minimumSize width="700" height="600"/>
+      <preferredSize width="700" height="600"/>
+    </properties>
+    <border type="empty">
+      <size top="10" left="10" bottom="10" right="10"/>
+    </border>
+    <children>
+      <component id="904f7" class="javax.swing.JButton" binding="removePackageButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <text value="Remove Package"/>
+        </properties>
+      </component>
+      <component id="ac1ee" class="javax.swing.JButton" binding="actionButton">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Open Package"/>
+        </properties>
+      </component>
+      <component id="c14a9" class="javax.swing.JLabel" binding="packageName">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <font name="Ubuntu" size="18" style="1"/>
+          <text value="No package file open. Please open a package file."/>
+        </properties>
+      </component>
+      <component id="543d2" class="javax.swing.JLabel" binding="packageSummary">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <font name="Ubuntu" size="16"/>
+          <text value="Summary of snap package"/>
+        </properties>
+      </component>
+      <component id="67160" class="javax.swing.JLabel" binding="packageVersion">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <focusTraversalPolicyProvider value="false"/>
+          <font name="Ubuntu" size="14"/>
+          <text value="Version: (open a package first)"/>
+        </properties>
+      </component>
+      <component id="54e29" class="javax.swing.JLabel" binding="packageLicense">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <font name="Ubuntu" size="14"/>
+          <text value="License: (open a package first)"/>
+        </properties>
+      </component>
+      <component id="70e66" class="javax.swing.JLabel" binding="packagePath">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="6" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <font name="Ubuntu" size="12"/>
+          <text value="Path: ???"/>
+        </properties>
+      </component>
+      <scrollpane id="de5e3" binding="descScrollPane">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="7" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <forms defaultalign-horz="false" defaultalign-vert="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </scrollpane>
+      <component id="b636" class="javax.swing.JButton" binding="clearButton">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms top="0" left="0" bottom="0" right="5"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <text value="Clear"/>
+        </properties>
+      </component>
+      <component id="94578" class="javax.swing.JButton" binding="storeButton">
+        <constraints>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <text value="Back to Store"/>
+        </properties>
+      </component>
+      <component id="4c7bd" class="javax.swing.JCheckBox" binding="classicInstallCheck">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <text value="Install in Classic Mode"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

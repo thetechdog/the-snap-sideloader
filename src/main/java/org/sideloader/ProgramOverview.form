@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.sideloader.ProgramOverview">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="924" height="620"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="42790" binding="topPanel" layout-manager="FormLayout">
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:45px:noGrow"/>
+        <rowspec value="top:d:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <colspec value="left:max(p;4px):grow"/>
+        <colspec value="left:4dlu:noGrow"/>
+        <colspec value="fill:max(d;4px):noGrow"/>
+        <colspec value="left:4dlu:noGrow"/>
+        <colspec value="fill:max(d;4px):noGrow"/>
+        <colspec value="left:4dlu:noGrow"/>
+        <colspec value="fill:max(m;220px):grow"/>
+        <colspec value="left:max(m;120px):noGrow"/>
+        <colspec value="fill:max(d;4px):noGrow"/>
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <hspacer id="71c51">
+            <constraints>
+              <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+          </hspacer>
+          <component id="eeea3" class="javax.swing.JLabel" binding="sizeLabel">
+            <constraints>
+              <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Size: "/>
+            </properties>
+          </component>
+          <component id="17705" class="javax.swing.JLabel" binding="licenseLabel">
+            <constraints>
+              <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="License: "/>
+            </properties>
+          </component>
+          <component id="9f09e" class="javax.swing.JLabel" binding="categoryLabel">
+            <constraints>
+              <grid row="10" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Category: "/>
+            </properties>
+          </component>
+          <component id="4a480" class="javax.swing.JComboBox" binding="versionBox">
+            <constraints>
+              <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <toolTipText value="Version"/>
+            </properties>
+          </component>
+          <component id="9e705" class="javax.swing.JButton" binding="backButton">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <font style="1"/>
+              <minimumSize width="38" height="32"/>
+              <preferredSize width="38" height="32"/>
+              <text value="&lt;"/>
+              <toolTipText value="Go Back"/>
+            </properties>
+          </component>
+          <grid id="1882e" binding="actionPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="1f0bc" class="javax.swing.JButton" binding="removeButton">
+                <constraints/>
+                <properties>
+                  <enabled value="false"/>
+                  <font style="1"/>
+                  <label value="X"/>
+                  <maximumSize width="38" height="32"/>
+                  <minimumSize width="38" height="32"/>
+                  <preferredSize width="38" height="32"/>
+                  <text value="X"/>
+                  <toolTipText value="Remove Program"/>
+                  <visible value="true"/>
+                </properties>
+              </component>
+              <component id="93f2f" class="javax.swing.JButton" binding="queueButton">
+                <constraints/>
+                <properties>
+                  <font/>
+                  <maximumSize width="38" height="32"/>
+                  <minimumSize width="38" height="32"/>
+                  <preferredSize width="38" height="32"/>
+                  <text value="➕"/>
+                  <toolTipText value="Add to Install Queue"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="88596" class="javax.swing.JButton" binding="installButton" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Install"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="ed553" class="javax.swing.JLabel" binding="prettyNameLabel">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font size="18" style="1"/>
+              <text value="&lt;title&gt;"/>
+            </properties>
+          </component>
+          <component id="26225" class="javax.swing.JLabel" binding="packageLabel">
+            <constraints>
+              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font size="18"/>
+              <text value="&lt;pkg&gt;"/>
+            </properties>
+          </component>
+          <component id="be9c6" class="javax.swing.JLabel" binding="devLabel">
+            <constraints>
+              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font size="14" style="2"/>
+              <text value="&lt;dev&gt;"/>
+            </properties>
+          </component>
+          <component id="484cc" class="javax.swing.JLabel" binding="confinementLabel">
+            <constraints>
+              <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font size="12"/>
+              <text value="&lt;conf&gt;"/>
+            </properties>
+          </component>
+          <component id="d10c1" class="javax.swing.JProgressBar" binding="progressBar">
+            <constraints>
+              <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <enabled value="false"/>
+              <visible value="false"/>
+            </properties>
+          </component>
+          <component id="6f4cd" class="javax.swing.JLabel" binding="iconLabel">
+            <constraints>
+              <grid row="2" column="2" row-span="5" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+            <properties>
+              <text value="&lt;icon&gt;"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="f78db" binding="bottomPanel" layout-manager="FormLayout">
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:d:grow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <rowspec value="top:4dlu:noGrow"/>
+        <rowspec value="center:max(d;4px):noGrow"/>
+        <colspec value="fill:d:grow"/>
+        <constraints border-constraint="South"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="930e1" class="javax.swing.JLabel" binding="summaryLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <font size="16" style="1"/>
+              <text value="&lt;summary&gt;"/>
+            </properties>
+          </component>
+          <component id="b80f4" class="javax.swing.JLabel" binding="devContactLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Developer Contact: "/>
+            </properties>
+          </component>
+          <component id="78ef6" class="javax.swing.JLabel" binding="devSiteLabel">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties>
+              <text value="Developer Site: "/>
+            </properties>
+          </component>
+          <scrollpane id="c7425" binding="descriptionScroll">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="1d070" class="javax.swing.JTextArea" binding="descriptionArea">
+                <constraints/>
+                <properties>
+                  <editable value="false"/>
+                  <font size="16"/>
+                  <lineWrap value="true"/>
+                  <text value="No description."/>
+                  <wrapStyleWord value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+          <grid id="ad078" binding="suggPanel" layout-manager="FormLayout">
+            <rowspec value="center:d:grow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
+            <colspec value="fill:d:grow"/>
+            <constraints>
+              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="83f73" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <font size="14" style="1"/>
+                  <text value="Recommended Apps:"/>
+                </properties>
+              </component>
+              <scrollpane id="eb90e" binding="suggAppsScroll">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties>
+                  <horizontalScrollBarPolicy value="31"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <grid id="a950f" binding="suggAppsPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+                    <constraints/>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="60a6f" class="javax.swing.JButton" binding="suggApp1">
+                        <constraints/>
+                        <properties>
+                          <enabled value="false"/>
+                          <horizontalTextPosition value="11"/>
+                          <preferredSize width="320" height="80"/>
+                          <text value="Not Available"/>
+                        </properties>
+                      </component>
+                      <component id="8844a" class="javax.swing.JButton" binding="suggApp2">
+                        <constraints/>
+                        <properties>
+                          <enabled value="false"/>
+                          <horizontalTextPosition value="11"/>
+                          <preferredSize width="320" height="80"/>
+                          <text value="Not Available"/>
+                        </properties>
+                      </component>
+                      <component id="5e873" class="javax.swing.JButton" binding="suggApp3">
+                        <constraints/>
+                        <properties>
+                          <enabled value="false"/>
+                          <horizontalAlignment value="0"/>
+                          <horizontalTextPosition value="11"/>
+                          <preferredSize width="320" height="80"/>
+                          <text value="Not Available"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="955fa" binding="centerPanel" layout-manager="FormLayout">
+        <rowspec value="center:d:grow"/>
+        <colspec value="fill:30px:grow"/>
+        <colspec value="left:4dlu:noGrow"/>
+        <colspec value="fill:d:grow"/>
+        <colspec value="left:4dlu:noGrow"/>
+        <colspec value="fill:30px:grow"/>
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <hspacer id="15299">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="b5194">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false"/>
+            </constraints>
+          </hspacer>
+          <scrollpane id="82d39" binding="screenshotScroll">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+            </constraints>
+            <properties>
+              <minimumSize width="320" height="240"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="2c404" class="javax.swing.JLabel" binding="screenshotLabel">
+                <constraints/>
+                <properties>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <text value="&lt;screenshot&gt;"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

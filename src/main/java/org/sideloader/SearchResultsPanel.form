@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.sideloader.SearchResultsPanel">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1085" height="702"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="bb07d" class="javax.swing.JButton" binding="program2">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font size="20"/>
+          <text value="&lt;...&gt;"/>
+        </properties>
+      </component>
+      <component id="bb122" class="javax.swing.JButton" binding="program1">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font size="20"/>
+          <text value="&lt;...&gt;"/>
+        </properties>
+      </component>
+      <component id="e9bf5" class="javax.swing.JButton" binding="program3">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font size="20"/>
+          <text value="&lt;...&gt;"/>
+        </properties>
+      </component>
+      <component id="a8250" class="javax.swing.JButton" binding="program4">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font size="20"/>
+          <text value="&lt;...&gt;"/>
+        </properties>
+      </component>
+      <component id="90cc" class="javax.swing.JButton" binding="program5">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <font size="20"/>
+          <text value="&lt;...&gt;"/>
+        </properties>
+      </component>
+      <grid id="7d2ae" binding="topPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="cbc47" class="javax.swing.JLabel" binding="searchText">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <font name="Ubuntu" size="22" style="1"/>
+              <horizontalAlignment value="10"/>
+              <text value="Search results:"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="256a9" binding="controlsPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="590da" class="javax.swing.JButton" binding="firstButton">
+            <constraints/>
+            <properties>
+              <enabled value="false"/>
+              <text value="&lt;&lt;"/>
+              <toolTipText value="First Page"/>
+            </properties>
+          </component>
+          <component id="b0e6e" class="javax.swing.JButton" binding="previousButton">
+            <constraints/>
+            <properties>
+              <enabled value="false"/>
+              <text value="&lt;"/>
+              <toolTipText value="Previous Page"/>
+            </properties>
+          </component>
+          <component id="b62eb" class="javax.swing.JSpinner" binding="pageSpinner">
+            <constraints/>
+            <properties>
+              <toolTipText value="Select Page"/>
+            </properties>
+          </component>
+          <component id="11f7e" class="javax.swing.JButton" binding="goButton" default-binding="true">
+            <constraints/>
+            <properties>
+              <text value="Go!"/>
+              <toolTipText value="Jump to Page"/>
+            </properties>
+          </component>
+          <component id="631a0" class="javax.swing.JButton" binding="nextButton">
+            <constraints/>
+            <properties>
+              <enabled value="false"/>
+              <text value="&gt;"/>
+              <toolTipText value="Next Page"/>
+            </properties>
+          </component>
+          <component id="69a30" class="javax.swing.JButton" binding="lastButton">
+            <constraints/>
+            <properties>
+              <enabled value="false"/>
+              <text value="&gt;&gt;"/>
+              <toolTipText value="Last Page"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="510d4" class="javax.swing.JLabel" binding="pageLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="12" style="2"/>
+          <text value="Page "/>
+          <verifyInputWhenFocusTarget value="false"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

@@ -1,8 +1,11 @@
 package org.sideloader;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SearchResultsPanel extends JPanel {
     private JPanel panel1;
@@ -21,39 +24,47 @@ public class SearchResultsPanel extends JPanel {
     private JButton nextButton;
     private JButton lastButton;
     private JLabel pageLabel;
-    private JButton[] programButtons={program1,program2,program3,program4,program5};
+    private JButton[] programButtons = {program1, program2, program3, program4, program5};
     JScrollPane storeContentPane;
     int pageNumber; //current page
     long totalApps;
     int totalPages;
-    public SearchResultsPanel(JScrollPane storeContentPane, int pageNumber, long totalApps, String searchedText, String categoryFilter, DBOperator dbop){
-        panel1.setPreferredSize(new Dimension(900,950));
-        add(panel1);
-        if(searchedText.equals("Type here to search"))
-            searchText.setText(searchText.getText() +' '+ totalApps +" programs found");
-        else
-            searchText.setText(searchText.getText()+' '+totalApps+" programs found for query '"+searchedText+"'");
-        this.storeContentPane=storeContentPane;
-        this.pageNumber=pageNumber;
-        this.totalApps=totalApps;
-        totalPages=(int)(totalApps/5);
-        if(totalApps%5!=0 || totalPages==0) totalPages++; //rounding up for the last partially full page
-        pageSpinner.setModel(new SpinnerNumberModel(pageNumber,1,totalPages,1));//setting spinner limits: current page, min page, max page, step (1 pg)
-        if(pageNumber>1){previousButton.setEnabled(true); firstButton.setEnabled(true);}
-        if(pageNumber<totalPages){nextButton.setEnabled(true); lastButton.setEnabled(true);}
-        pageLabel.setText(pageLabel.getText()+pageNumber+" of "+totalPages);
 
-        System.out.println("Category filter: "+categoryFilter+" Search text: "+searchedText+" Page number: "+pageNumber);
+    public SearchResultsPanel(JScrollPane storeContentPane, int pageNumber, long totalApps, String searchedText, String categoryFilter, DBOperator dbop) {
+        panel1.setPreferredSize(new Dimension(900, 950));
+        add(panel1);
+        if (searchedText.equals("Type here to search"))
+            searchText.setText(searchText.getText() + ' ' + totalApps + " programs found");
+        else
+            searchText.setText(searchText.getText() + ' ' + totalApps + " programs found for query '" + searchedText + "'");
+        this.storeContentPane = storeContentPane;
+        this.pageNumber = pageNumber;
+        this.totalApps = totalApps;
+        totalPages = (int) (totalApps / 5);
+        if (totalApps % 5 != 0 || totalPages == 0) totalPages++; //rounding up for the last partially full page
+        pageSpinner.setModel(new SpinnerNumberModel(pageNumber, 1, totalPages, 1));//setting spinner limits: current page, min page, max page, step (1 pg)
+        if (pageNumber > 1) {
+            previousButton.setEnabled(true);
+            firstButton.setEnabled(true);
+        }
+        if (pageNumber < totalPages) {
+            nextButton.setEnabled(true);
+            lastButton.setEnabled(true);
+        }
+        pageLabel.setText(pageLabel.getText() + pageNumber + " of " + totalPages);
+
+        System.out.println("Category filter: " + categoryFilter + " Search text: " + searchedText + " Page number: " + pageNumber);
         //action listeners
-        firstButton.addActionListener(e -> changePage(1,searchedText,dbop,categoryFilter));
-        previousButton.addActionListener(e -> changePage(pageNumber-1,searchedText,dbop,categoryFilter));
-        nextButton.addActionListener(e -> changePage(pageNumber+1,searchedText,dbop,categoryFilter));
-        lastButton.addActionListener(e -> changePage(totalPages,searchedText,dbop,categoryFilter));
-        goButton.addActionListener(e -> changePage((int)pageSpinner.getValue(),searchedText,dbop,categoryFilter));
+        firstButton.addActionListener(e -> changePage(1, searchedText, dbop, categoryFilter));
+        previousButton.addActionListener(e -> changePage(pageNumber - 1, searchedText, dbop, categoryFilter));
+        nextButton.addActionListener(e -> changePage(pageNumber + 1, searchedText, dbop, categoryFilter));
+        lastButton.addActionListener(e -> changePage(totalPages, searchedText, dbop, categoryFilter));
+        goButton.addActionListener(e -> changePage((int) pageSpinner.getValue(), searchedText, dbop, categoryFilter));
 
     }
-    public void setUpButtons(ArrayList<String> programs, ArrayList<String> packageNames, ArrayList<String> summaries, ArrayList<String> iconURLs){
-        for(int i=0;i<programs.size();i++){
+
+    public void setUpButtons(ArrayList<String> programs, ArrayList<String> packageNames, ArrayList<String> summaries, ArrayList<String> iconURLs) {
+        for (int i = 0; i < programs.size(); i++) {
             SnapSideloaderStore.styleButton(programButtons[i], programs.get(i), packageNames.get(i), (String) summaries.get(i), iconURLs.get(i));
             final int I = i;
             programButtons[i].addActionListener(e -> {
@@ -64,10 +75,133 @@ public class SearchResultsPanel extends JPanel {
             });
         }
     }
-    private void changePage(int pageNo, String searchText, DBOperator dbop, String categoryFilter){
+
+    private void changePage(int pageNo, String searchText, DBOperator dbop, String categoryFilter) {
         storeContentPane.setViewportView(new LoadingPanel(storeContentPane)); //show loading panel while loading
         //initiate search
-        new SearchResultsFetcher(storeContentPane,searchText,categoryFilter,dbop,pageNo).execute();
+        new SearchResultsFetcher(storeContentPane, searchText, categoryFilter, dbop, pageNo).execute();
     }
 
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        panel1 = new JPanel();
+        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(8, 1, new Insets(0, 0, 0, 0), -1, -1));
+        program2 = new JButton();
+        program2.setEnabled(false);
+        Font program2Font = this.$$$getFont$$$(null, -1, 20, program2.getFont());
+        if (program2Font != null) program2.setFont(program2Font);
+        program2.setText("<...>");
+        panel1.add(program2, new com.intellij.uiDesigner.core.GridConstraints(2, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        program1 = new JButton();
+        program1.setEnabled(false);
+        Font program1Font = this.$$$getFont$$$(null, -1, 20, program1.getFont());
+        if (program1Font != null) program1.setFont(program1Font);
+        program1.setText("<...>");
+        panel1.add(program1, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        program3 = new JButton();
+        program3.setEnabled(false);
+        Font program3Font = this.$$$getFont$$$(null, -1, 20, program3.getFont());
+        if (program3Font != null) program3.setFont(program3Font);
+        program3.setText("<...>");
+        panel1.add(program3, new com.intellij.uiDesigner.core.GridConstraints(3, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        program4 = new JButton();
+        program4.setEnabled(false);
+        Font program4Font = this.$$$getFont$$$(null, -1, 20, program4.getFont());
+        if (program4Font != null) program4.setFont(program4Font);
+        program4.setText("<...>");
+        panel1.add(program4, new com.intellij.uiDesigner.core.GridConstraints(4, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        program5 = new JButton();
+        program5.setEnabled(false);
+        Font program5Font = this.$$$getFont$$$(null, -1, 20, program5.getFont());
+        if (program5Font != null) program5.setFont(program5Font);
+        program5.setText("<...>");
+        panel1.add(program5, new com.intellij.uiDesigner.core.GridConstraints(5, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        topPanel = new JPanel();
+        topPanel.setLayout(new BorderLayout(0, 0));
+        panel1.add(topPanel, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        searchText = new JLabel();
+        Font searchTextFont = this.$$$getFont$$$("Ubuntu", Font.BOLD, 22, searchText.getFont());
+        if (searchTextFont != null) searchText.setFont(searchTextFont);
+        searchText.setHorizontalAlignment(10);
+        searchText.setText("Search results:");
+        topPanel.add(searchText, BorderLayout.CENTER);
+        controlsPanel = new JPanel();
+        controlsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        panel1.add(controlsPanel, new com.intellij.uiDesigner.core.GridConstraints(7, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        firstButton = new JButton();
+        firstButton.setEnabled(false);
+        firstButton.setText("<<");
+        firstButton.setToolTipText("First Page");
+        controlsPanel.add(firstButton);
+        previousButton = new JButton();
+        previousButton.setEnabled(false);
+        previousButton.setText("<");
+        previousButton.setToolTipText("Previous Page");
+        controlsPanel.add(previousButton);
+        pageSpinner = new JSpinner();
+        pageSpinner.setToolTipText("Select Page");
+        controlsPanel.add(pageSpinner);
+        goButton = new JButton();
+        goButton.setText("Go!");
+        goButton.setToolTipText("Jump to Page");
+        controlsPanel.add(goButton);
+        nextButton = new JButton();
+        nextButton.setEnabled(false);
+        nextButton.setText(">");
+        nextButton.setToolTipText("Next Page");
+        controlsPanel.add(nextButton);
+        lastButton = new JButton();
+        lastButton.setEnabled(false);
+        lastButton.setText(">>");
+        lastButton.setToolTipText("Last Page");
+        controlsPanel.add(lastButton);
+        pageLabel = new JLabel();
+        Font pageLabelFont = this.$$$getFont$$$(null, Font.ITALIC, 12, pageLabel.getFont());
+        if (pageLabelFont != null) pageLabel.setFont(pageLabelFont);
+        pageLabel.setText("Page ");
+        pageLabel.setVerifyInputWhenFocusTarget(false);
+        panel1.add(pageLabel, new com.intellij.uiDesigner.core.GridConstraints(6, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return panel1;
+    }
 }

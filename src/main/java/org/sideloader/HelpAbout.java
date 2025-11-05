@@ -1,9 +1,12 @@
 package org.sideloader;
 
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class HelpAbout extends JDialog{
+public class HelpAbout extends JDialog {
     private JPanel panel1;
     private JTabbedPane tabbedPane;
     private JComboBox guideCombo;
@@ -14,12 +17,12 @@ public class HelpAbout extends JDialog{
     private JTextArea infoArea2;
     private JPanel guidePanel;
     private JPanel aboutPanel;
-    private String placeholder="undefined";
+    private String placeholder = "undefined";
 
     public HelpAbout() {
         setModal(true);
-        setSize(new Dimension(500,300));
-        setMinimumSize(new Dimension(250,200));
+        setSize(new Dimension(500, 300));
+        setMinimumSize(new Dimension(250, 200));
         add(panel1);
         guideCombo.setSelectedIndex(0);
         aboutCombo.setSelectedIndex(0);
@@ -40,30 +43,29 @@ public class HelpAbout extends JDialog{
                 "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
                 "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
                 "See the License for the specific language governing permissions and\n" +
-                "limitations under the License.\n\n"+
+                "limitations under the License.\n\n" +
                 "Source code available at: https://github.com/thetechdog/the-snap-sideloader");
         textScroll.getVerticalScrollBar().setValue(0);
         infoArea2.setCaretPosition(0);
 
-        guideCombo.addActionListener(e->{
-            if(guideCombo.getSelectedIndex()==0){
+        guideCombo.addActionListener(e -> {
+            if (guideCombo.getSelectedIndex() == 0) {
                 infoArea.setText("Welcome to Snap Sideloader!\nThis guide will give you an overview of basic usage.\nFirst off, the store UI. In the upper part " +
                         "of the screen you can see a search bar and a search button. On the side you can see a few buttons as well as a list of categories, if toggled on. In the center is where" +
                         "you will see the content pages. Some content pages will lead to other pages. Use the \"Home\" button on the sidebar to go back to the Front page.\n" +
                         "When you're done, click the \"Exit\" button to close the program.");
                 textScroll.getVerticalScrollBar().setValue(0);
-            }
-            else if(guideCombo.getSelectedIndex()==1){
+            } else if (guideCombo.getSelectedIndex() == 1) {
                 infoArea.setText("Clicking on the Settings button located on the sidebar will open the settings menu. Here you can change your theme, repository update frequency," +
-                "enable/disable program suggestions and enable/disable the featured page. You can also start a manual repository update and access the Repository Manager.");
+                        "enable/disable program suggestions and enable/disable the featured page. You can also start a manual repository update and access the Repository Manager.");
                 textScroll.getVerticalScrollBar().setValue(0);
             }
         });
-        aboutCombo.addActionListener(e->{
+        aboutCombo.addActionListener(e -> {
             String aboutText = "";
             switch (aboutCombo.getSelectedIndex()) {
                 case 0:
-                    aboutText="The Snap Sideloader\n" +
+                    aboutText = "The Snap Sideloader\n" +
                             "Copyright 2024-2025 Andrei Ionel\n" +
                             "\n" +
                             "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
@@ -76,11 +78,11 @@ public class HelpAbout extends JDialog{
                             "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
                             "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
                             "See the License for the specific language governing permissions and\n" +
-                            "limitations under the License.\n\n"+
+                            "limitations under the License.\n\n" +
                             "Source code available at: https://github.com/thetechdog/the-snap-sideloader";
                     break;
                 case 1:
-                    aboutText="              The BSD License for the JGoodies Forms\n" +
+                    aboutText = "              The BSD License for the JGoodies Forms\n" +
                             "              ======================================\n" +
                             "\n" +
                             "Copyright (c) 2002-2015 JGoodies Software GmbH. All rights reserved.\n" +
@@ -112,7 +114,7 @@ public class HelpAbout extends JDialog{
                             "EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.";
                     break;
                 case 2:
-                    aboutText="Copyright 2008 Google Inc.\n" +
+                    aboutText = "Copyright 2008 Google Inc.\n" +
                             "\n" +
                             "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
                             "you may not use this file except in compliance with the License.\n" +
@@ -127,7 +129,7 @@ public class HelpAbout extends JDialog{
                             "limitations under the License.";
                     break;
                 case 3:
-                    aboutText="This product includes the following softwares developed by David Crawshaw.\n" +
+                    aboutText = "This product includes the following softwares developed by David Crawshaw.\n" +
                             "See LICENSE.zentus file.\n" +
                             "\n" +
                             "And also, NestedVM (Apache License Version 2.0) is used inside sqlite-\n" +
@@ -170,7 +172,7 @@ public class HelpAbout extends JDialog{
                             "SUCH DAMAGE.";
                     break;
                 case 4:
-                    aboutText="BSD 3-Clause License\n" +
+                    aboutText = "BSD 3-Clause License\n" +
                             "\n" +
                             "Copyright (c) 2008-2020, Harald Kuhr\n" +
                             "All rights reserved.\n" +
@@ -201,7 +203,7 @@ public class HelpAbout extends JDialog{
                             "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.";
                     break;
                 case 5:
-                    aboutText="Copyright 2019 Square, Inc.\n" +
+                    aboutText = "Copyright 2019 Square, Inc.\n" +
                             "\n" +
                             "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
                             "you may not use this file except in compliance with the License.\n" +
@@ -216,7 +218,7 @@ public class HelpAbout extends JDialog{
                             "limitations under the License.";
                     break;
                 case 6:
-                    aboutText="Copyright 2025 Rkalla and contributors\n" +
+                    aboutText = "Copyright 2025 Rkalla and contributors\n" +
                             "\n" +
                             "   Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
                             "   you may not use this file except in compliance with the License.\n" +
@@ -231,7 +233,7 @@ public class HelpAbout extends JDialog{
                             "   limitations under the License.";
                     break;
                 case 7:
-                    aboutText="Apache Commons Text\n" +
+                    aboutText = "Apache Commons Text\n" +
                             "Copyright 2014-2025 The Apache Software Foundation\n" +
                             "\n" +
                             "This product includes software developed at\n" +
@@ -247,7 +249,7 @@ public class HelpAbout extends JDialog{
                             "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
                             "   See the License for the specific language governing permissions and\n" +
                             "   limitations under the License.";
-                        break;
+                    break;
                 default:
                     infoArea2.setText("Invalid combo box index!!");
 
@@ -259,5 +261,91 @@ public class HelpAbout extends JDialog{
 
         tabbedPane.remove(guidePanel);
         tabbedPane.add(new JLabel("Under construction..."));
+    }
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        panel1 = new JPanel();
+        panel1.setLayout(new FormLayout("fill:d:grow", "top:80px:grow"));
+        tabbedPane = new JTabbedPane();
+        tabbedPane.setEnabled(true);
+        CellConstraints cc = new CellConstraints();
+        panel1.add(tabbedPane, cc.xy(1, 1, CellConstraints.DEFAULT, CellConstraints.TOP));
+        guidePanel = new JPanel();
+        guidePanel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:grow,top:4dlu:noGrow,center:d:grow"));
+        guidePanel.setEnabled(false);
+        tabbedPane.addTab("User Guide", guidePanel);
+        guideCombo = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("Getting Around the UI");
+        defaultComboBoxModel1.addElement("Configuration");
+        defaultComboBoxModel1.addElement("Managing Repositories");
+        defaultComboBoxModel1.addElement("Front Page");
+        defaultComboBoxModel1.addElement("Searching");
+        defaultComboBoxModel1.addElement("Program Overview");
+        defaultComboBoxModel1.addElement("Program Management");
+        defaultComboBoxModel1.addElement("Switching Repositories");
+        defaultComboBoxModel1.addElement("Installing Local Packages");
+        guideCombo.setModel(defaultComboBoxModel1);
+        guidePanel.add(guideCombo, cc.xy(3, 1));
+        final JLabel label1 = new JLabel();
+        label1.setText("Pick a Category:");
+        guidePanel.add(label1, cc.xy(1, 1));
+        textScroll = new JScrollPane();
+        textScroll.setHorizontalScrollBarPolicy(31);
+        guidePanel.add(textScroll, cc.xyw(1, 3, 3, CellConstraints.FILL, CellConstraints.FILL));
+        infoArea = new JTextArea();
+        infoArea.setLineWrap(true);
+        infoArea.setMinimumSize(new Dimension(705, 100));
+        infoArea.setText("");
+        infoArea.setWrapStyleWord(true);
+        textScroll.setViewportView(infoArea);
+        aboutPanel = new JPanel();
+        aboutPanel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
+        tabbedPane.addTab("About", aboutPanel);
+        aboutCombo = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();
+        defaultComboBoxModel2.addElement("The Snap Sideloader");
+        defaultComboBoxModel2.addElement("JGoodies Forms");
+        defaultComboBoxModel2.addElement("Gson");
+        defaultComboBoxModel2.addElement("SQLite JDBC");
+        defaultComboBoxModel2.addElement("TwelveMonkeys ImageIO WebP");
+        defaultComboBoxModel2.addElement("OkHttp3");
+        defaultComboBoxModel2.addElement("ImgScalr");
+        defaultComboBoxModel2.addElement("Apache Commons Text");
+        aboutCombo.setModel(defaultComboBoxModel2);
+        aboutPanel.add(aboutCombo, cc.xy(3, 1));
+        final JLabel label2 = new JLabel();
+        label2.setText("Pick an Item:");
+        aboutPanel.add(label2, cc.xy(1, 1));
+        textScroll2 = new JScrollPane();
+        textScroll2.setHorizontalScrollBarPolicy(31);
+        aboutPanel.add(textScroll2, cc.xyw(1, 3, 3, CellConstraints.FILL, CellConstraints.FILL));
+        infoArea2 = new JTextArea();
+        infoArea2.setLineWrap(true);
+        infoArea2.setMinimumSize(new Dimension(705, 100));
+        infoArea2.setText("");
+        infoArea2.setWrapStyleWord(true);
+        textScroll2.setViewportView(infoArea2);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return panel1;
     }
 }

@@ -1,9 +1,16 @@
 package org.sideloader;
 
+import com.jgoodies.forms.layout.CellConstraints;
+import com.jgoodies.forms.layout.FormLayout;
+
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
+import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Map;
 
 public class ProgramSettingsGUI extends JDialog {
@@ -22,67 +29,198 @@ public class ProgramSettingsGUI extends JDialog {
     private ProgramSettings stConfig;
     private String lastUpdateShowAndSet;
     private Map<String, String> repositories;
-    private String dbDirectory=System.getProperty("user.home")+"/.local/share/snap-sideloader/";
+    private String dbDirectory = System.getProperty("user.home") + "/.local/share/snap-sideloader/";
 
-    public ProgramSettingsGUI(ProgramSettings stConfig, Map<String, String> repositories, String currentRepo){
-        this.stConfig=stConfig;
-        this.repositories=repositories;
+    public ProgramSettingsGUI(ProgramSettings stConfig, Map<String, String> repositories, String currentRepo) {
+        this.stConfig = stConfig;
+        this.repositories = repositories;
         setTitle("Store Settings");
         setContentPane(settingsPanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         loadSettings();
-        lastUpdateLabel.setText(lastUpdateLabel.getText()+' '+lastUpdateShowAndSet);
+        lastUpdateLabel.setText(lastUpdateLabel.getText() + ' ' + lastUpdateShowAndSet);
         pack();
-        saveButton.addActionListener(e->{
+        saveButton.addActionListener(e -> {
             saveSettings();
-            JOptionPane.showMessageDialog(this,"Restart the program for changes to take effect.","Settings Saved",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Restart the program for changes to take effect.", "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         });
-        cancelButton.addActionListener(e->dispose());
-        refreshButton.addActionListener(e->refreshRepos());
-        manageRepositoriesButton.addActionListener(e->{RepoManager manager=new RepoManager(repositories,false, currentRepo); manager.setModal(true);
-                                manager.setLocationRelativeTo(this); manager.setVisible(true);});
+        cancelButton.addActionListener(e -> dispose());
+        refreshButton.addActionListener(e -> refreshRepos());
+        manageRepositoriesButton.addActionListener(e -> {
+            RepoManager manager = new RepoManager(repositories, false, currentRepo);
+            manager.setModal(true);
+            manager.setLocationRelativeTo(this);
+            manager.setVisible(true);
+        });
 
     }
 
-    private void refreshRepos(){
-        for(Map.Entry<String,String> repo: repositories.entrySet()){ //iterating over each key-value pair
-            String filename=repo.getKey()+".sqlite";
-            String url=repo.getValue();
-            try{SnapSideloaderStore.downloadFile(url,dbDirectory,filename);} catch (IOException e) {
-                JOptionPane.showMessageDialog(this,"Couldn't download file for repository named "+repo.getKey()
-                        +".\nCheck if the URL is correct, or if your internet connection is stable.","Error",JOptionPane.ERROR_MESSAGE);
+    private void refreshRepos() {
+        for (Map.Entry<String, String> repo : repositories.entrySet()) { //iterating over each key-value pair
+            String filename = repo.getKey() + ".sqlite";
+            String url = repo.getValue();
+            try {
+                SnapSideloaderStore.downloadFile(url, dbDirectory, filename);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Couldn't download file for repository named " + repo.getKey()
+                        + ".\nCheck if the URL is correct, or if your internet connection is stable.", "Error", JOptionPane.ERROR_MESSAGE);
                 e.printStackTrace();
             }
-            System.out.println("Saved "+filename);
+            System.out.println("Saved " + filename);
         }//saving the db files for each repo locally
 
-        lastUpdateShowAndSet=LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        lastUpdateLabel.setText("Last refreshed at: " +lastUpdateShowAndSet);
+        lastUpdateShowAndSet = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        lastUpdateLabel.setText("Last refreshed at: " + lastUpdateShowAndSet);
 
-        stConfig.lastUpdate=lastUpdateShowAndSet;
+        stConfig.lastUpdate = lastUpdateShowAndSet;
         Main.createConfigFile(stConfig);//also save refresh date automatically
-        JOptionPane.showMessageDialog(this,"Repositories refreshed successfully!","Success",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Repositories refreshed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void loadSettings(){
+    private void loadSettings() {
         themeBox.setSelectedIndex(stConfig.theme);
         frequencyBox.setSelectedIndex(stConfig.frequency);
         alertsCheckBox.setSelected(stConfig.updateAlerts);
         featuredCheckBox.setSelected(stConfig.showFeaturedPage);
         suggCheckBox.setSelected(stConfig.programSuggestions);
         imgCheckBox.setSelected(stConfig.showImgs);
-        lastUpdateShowAndSet=stConfig.lastUpdate;
+        lastUpdateShowAndSet = stConfig.lastUpdate;
     }
 
-    private void saveSettings(){
-        stConfig.theme=(byte)themeBox.getSelectedIndex();
-        stConfig.frequency=(byte)frequencyBox.getSelectedIndex();
-        stConfig.updateAlerts=alertsCheckBox.isSelected();
-        stConfig.showFeaturedPage=featuredCheckBox.isSelected();
-        stConfig.programSuggestions=suggCheckBox.isSelected();
-        stConfig.showImgs=imgCheckBox.isSelected();
-        stConfig.lastUpdate=lastUpdateShowAndSet;
+    private void saveSettings() {
+        stConfig.theme = (byte) themeBox.getSelectedIndex();
+        stConfig.frequency = (byte) frequencyBox.getSelectedIndex();
+        stConfig.updateAlerts = alertsCheckBox.isSelected();
+        stConfig.showFeaturedPage = featuredCheckBox.isSelected();
+        stConfig.programSuggestions = suggCheckBox.isSelected();
+        stConfig.showImgs = imgCheckBox.isSelected();
+        stConfig.lastUpdate = lastUpdateShowAndSet;
         Main.createConfigFile(stConfig); //create config file when clicking save based on the settings
+    }
+
+    {
+// GUI initializer generated by IntelliJ IDEA GUI Designer
+// >>> IMPORTANT!! <<<
+// DO NOT EDIT OR ADD ANY CODE HERE!
+        $$$setupUI$$$();
+    }
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        settingsPanel = new JPanel();
+        settingsPanel.setLayout(new FormLayout("left:4dlu:noGrow,fill:d:noGrow,fill:267px:grow,left:4dlu:noGrow,fill:max(d;4px):noGrow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:16px:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,top:16dlu:noGrow,top:4dlu:noGrow,center:max(d;4px):noGrow,center:max(d;4px):noGrow"));
+        themeBox = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        defaultComboBoxModel1.addElement("Default");
+        defaultComboBoxModel1.addElement("Classic");
+        defaultComboBoxModel1.addElement("GTK");
+        themeBox.setModel(defaultComboBoxModel1);
+        CellConstraints cc = new CellConstraints();
+        settingsPanel.add(themeBox, cc.xyw(3, 1, 3));
+        frequencyBox = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();
+        defaultComboBoxModel2.addElement("Every 3 Days");
+        defaultComboBoxModel2.addElement("Daily");
+        defaultComboBoxModel2.addElement("Weekly");
+        defaultComboBoxModel2.addElement("Monthly");
+        defaultComboBoxModel2.addElement("Manual");
+        frequencyBox.setModel(defaultComboBoxModel2);
+        settingsPanel.add(frequencyBox, cc.xyw(3, 3, 3));
+        final JLabel label1 = new JLabel();
+        label1.setText("Repository Refresh Frequency:");
+        settingsPanel.add(label1, cc.xy(2, 3));
+        final JLabel label2 = new JLabel();
+        label2.setText("Program Theme:");
+        settingsPanel.add(label2, cc.xy(2, 1));
+        final JLabel label3 = new JLabel();
+        label3.setText("Repository Management:");
+        settingsPanel.add(label3, cc.xy(2, 7));
+        manageRepositoriesButton = new JButton();
+        manageRepositoriesButton.setText("Manage Repositories");
+        settingsPanel.add(manageRepositoriesButton, cc.xyw(3, 7, 3));
+        final JLabel label4 = new JLabel();
+        label4.setText("Featured Page:");
+        settingsPanel.add(label4, cc.xy(2, 9));
+        featuredCheckBox = new JCheckBox();
+        featuredCheckBox.setSelected(true);
+        featuredCheckBox.setText("");
+        settingsPanel.add(featuredCheckBox, cc.xyw(3, 9, 3));
+        final JLabel label5 = new JLabel();
+        label5.setText("Program update alerts");
+        label5.setVisible(false);
+        settingsPanel.add(label5, cc.xy(2, 5));
+        alertsCheckBox = new JCheckBox();
+        alertsCheckBox.setText("Enabled");
+        alertsCheckBox.setVisible(false);
+        settingsPanel.add(alertsCheckBox, cc.xyw(3, 5, 3));
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        settingsPanel.add(panel1, cc.xy(3, 17));
+        cancelButton = new JButton();
+        cancelButton.setText("Cancel");
+        panel1.add(cancelButton);
+        saveButton = new JButton();
+        saveButton.setHorizontalAlignment(0);
+        saveButton.setText("Save");
+        panel1.add(saveButton);
+        final JLabel label6 = new JLabel();
+        label6.setText("Manual Repository Refresh:");
+        settingsPanel.add(label6, cc.xy(2, 14));
+        refreshButton = new JButton();
+        refreshButton.setText("Refresh");
+        settingsPanel.add(refreshButton, cc.xyw(3, 14, 3));
+        lastUpdateLabel = new JLabel();
+        Font lastUpdateLabelFont = this.$$$getFont$$$(null, Font.ITALIC, 11, lastUpdateLabel.getFont());
+        if (lastUpdateLabelFont != null) lastUpdateLabel.setFont(lastUpdateLabelFont);
+        lastUpdateLabel.setText("Last refreshed at:");
+        settingsPanel.add(lastUpdateLabel, cc.xy(3, 16));
+        final JLabel label7 = new JLabel();
+        label7.setText("Program Suggestions:");
+        settingsPanel.add(label7, cc.xy(2, 11));
+        suggCheckBox = new JCheckBox();
+        suggCheckBox.setText("");
+        settingsPanel.add(suggCheckBox, cc.xy(3, 11));
+        final JLabel label8 = new JLabel();
+        label8.setText("Load Images:");
+        settingsPanel.add(label8, cc.xy(2, 13));
+        imgCheckBox = new JCheckBox();
+        imgCheckBox.setText("");
+        settingsPanel.add(imgCheckBox, cc.xy(3, 13));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return settingsPanel;
     }
 }

@@ -100,6 +100,7 @@ public class SnapSideloaderStore extends JFrame {
 
         //setting up the UI
         setTitle("The Snap Sideloader Store: "+selectedRepo);
+        setIconImage(new ImageIcon(getClass().getResource("/tss.ico")).getImage());
         setContentPane(storePanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         categoriesList.setSelectedIndex(0);

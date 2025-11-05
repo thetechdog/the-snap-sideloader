@@ -94,6 +94,8 @@
             <colspec value="fill:max(d;4px):noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:d:grow"/>
+            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="fill:max(d;4px):noGrow"/>
             <constraints>
               <tabbedpane title="About"/>
             </constraints>
@@ -129,7 +131,7 @@
               </component>
               <scrollpane id="1dc19" binding="textScroll2">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
                 </constraints>
                 <properties>
@@ -148,6 +150,20 @@
                   </component>
                 </children>
               </scrollpane>
+              <component id="577d6" class="javax.swing.JLabel" binding="tssIco">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <forms/>
+                </constraints>
+                <properties>
+                  <icon value="tss.png"/>
+                  <maximumSize width="24" height="24"/>
+                  <minimumSize width="24" height="24"/>
+                  <text value=""/>
+                  <toolTipText value="The Snap Sideloader"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

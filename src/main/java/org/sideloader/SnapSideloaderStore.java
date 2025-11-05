@@ -560,4 +560,5 @@ public class SnapSideloaderStore extends JFrame {
     public JComponent $$$getRootComponent$$$() {
         return storePanel;
     }
+
 }

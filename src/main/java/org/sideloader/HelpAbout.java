@@ -17,6 +17,7 @@ public class HelpAbout extends JDialog {
     private JTextArea infoArea2;
     private JPanel guidePanel;
     private JPanel aboutPanel;
+    private JLabel tssIco;
     private String placeholder = "undefined";
 
     public HelpAbout() {
@@ -47,6 +48,7 @@ public class HelpAbout extends JDialog {
                 "Source code available at: https://github.com/thetechdog/the-snap-sideloader");
         textScroll.getVerticalScrollBar().setValue(0);
         infoArea2.setCaretPosition(0);
+        tssIco.setVisible(true);
 
         guideCombo.addActionListener(e -> {
             if (guideCombo.getSelectedIndex() == 0) {
@@ -63,6 +65,7 @@ public class HelpAbout extends JDialog {
         });
         aboutCombo.addActionListener(e -> {
             String aboutText = "";
+            tssIco.setVisible(false);
             switch (aboutCombo.getSelectedIndex()) {
                 case 0:
                     aboutText = "The Snap Sideloader\n" +
@@ -80,6 +83,7 @@ public class HelpAbout extends JDialog {
                             "See the License for the specific language governing permissions and\n" +
                             "limitations under the License.\n\n" +
                             "Source code available at: https://github.com/thetechdog/the-snap-sideloader";
+                    tssIco.setVisible(true);
                     break;
                 case 1:
                     aboutText = "              The BSD License for the JGoodies Forms\n" +
@@ -314,7 +318,7 @@ public class HelpAbout extends JDialog {
         infoArea.setWrapStyleWord(true);
         textScroll.setViewportView(infoArea);
         aboutPanel = new JPanel();
-        aboutPanel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
+        aboutPanel.setLayout(new FormLayout("fill:max(d;4px):noGrow,left:4dlu:noGrow,fill:d:grow,left:4dlu:noGrow,fill:max(d;4px):noGrow", "center:d:grow,top:4dlu:noGrow,center:max(d;4px):noGrow"));
         tabbedPane.addTab("About", aboutPanel);
         aboutCombo = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();
@@ -333,13 +337,21 @@ public class HelpAbout extends JDialog {
         aboutPanel.add(label2, cc.xy(1, 1));
         textScroll2 = new JScrollPane();
         textScroll2.setHorizontalScrollBarPolicy(31);
-        aboutPanel.add(textScroll2, cc.xyw(1, 3, 3, CellConstraints.FILL, CellConstraints.FILL));
+        aboutPanel.add(textScroll2, cc.xyw(1, 3, 5, CellConstraints.FILL, CellConstraints.FILL));
         infoArea2 = new JTextArea();
         infoArea2.setLineWrap(true);
         infoArea2.setMinimumSize(new Dimension(705, 100));
         infoArea2.setText("");
         infoArea2.setWrapStyleWord(true);
         textScroll2.setViewportView(infoArea2);
+        tssIco = new JLabel();
+        tssIco.setIcon(new ImageIcon(getClass().getResource("/tss.png")));
+        tssIco.setMaximumSize(new Dimension(24, 24));
+        tssIco.setMinimumSize(new Dimension(24, 24));
+        tssIco.setText("");
+        tssIco.setToolTipText("The Snap Sideloader");
+        tssIco.setVisible(false);
+        aboutPanel.add(tssIco, cc.xy(5, 1));
     }
 
     /**
@@ -348,4 +360,5 @@ public class HelpAbout extends JDialog {
     public JComponent $$$getRootComponent$$$() {
         return panel1;
     }
+
 }

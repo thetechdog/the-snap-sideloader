@@ -228,6 +228,8 @@ public class SnapSideloaderStore extends JFrame {
             storeContentPane.setViewportView(new LoadingPanel(storeContentPane)); //show loading panel while loading
             new InstalledAndUpdatesPanelLoader(selectedRepo, installedApps, dbop, storeContentPane).execute();
         });
+
+        setLocationRelativeTo(null);
     }
 
     //METHODS

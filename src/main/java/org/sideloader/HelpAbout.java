@@ -31,7 +31,7 @@ public class HelpAbout extends JDialog {
                 "of the screen you can see a search bar and a search button. On the side you can see a few buttons as well as a list of categories, if toggled on. In the center is where" +
                 "you will see the content pages. Some content pages will lead to other pages. Use the \"Home\" button on the sidebar to go back to the Front page.\n" +
                 "When you're done, click the \"Exit\" button to close the program.");
-        infoArea2.setText("----- The Snap Sideloader\n" +
+        infoArea2.setText("----- The Snap Sideloader, v1.0.0\n" +
                 apacheLicense("2024-2025", "Andrei Ionel") +
                 "\nSource code available at: https://github.com/thetechdog/the-snap-sideloader");
         textScroll.getVerticalScrollBar().setValue(0);
@@ -56,7 +56,7 @@ public class HelpAbout extends JDialog {
             tssIco.setVisible(false);
             switch (aboutCombo.getSelectedIndex()) {
                 case 0:
-                    aboutText = "----- The Snap Sideloader\n" +
+                    aboutText = "----- The Snap Sideloader, v1.0.0\n" +
                             apacheLicense("2024-2025", "Andrei Ionel") +
                             "\nSource code available at: https://github.com/thetechdog/the-snap-sideloader";
                     tssIco.setVisible(true);

@@ -1,4 +1,4 @@
-# The Snap Sideloader
+# The Snap Sideloader <img src="https://github.com/thetechdog/the-snap-sideloader/blob/master/src/main/resources/tss.ico?raw=true" alt="thesnapsideloader-logo" width="64"/>
 ## What is it?
 The Snap Sideloader (TSS) is a graphical program built with Java and Swing that can be used to manage snap packages from third party sources.  
 You have the possibility of either installing packages individually from a local file, or installing packages from remote third party snap package repositories.  

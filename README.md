@@ -63,6 +63,9 @@ Configuration file is stored in ~/.config/snap-sideloader/ with the config.json 
 ## Building
 Building is done using Maven. This program targets Java 21. It could probably be compiled for earlier Java versions just fine, but that's up to you to check.  
 
+## Running
+You can run the jar file from command line using "java -jar path/to/jar/file".  
+
 ## Program Insight and Future Plans
 The main inspiration for this program was F-Droid. I thought that something like that but for snap packages would be neat, especially when some people are complaining that you can't easily distribute snap packages outside of the Snap Store. This program just lays the foundation for that and it proves that it is indeed possible to distribute snap packages in such a way that anyone can basically make their own repository. Hopefully the people complaining about snap can now cross this thing from their list of complaints. That is to say, snap is a pretty awesome way to package applications, and hopefully this program pushes hesitant developers to give it a try and gives them the liberty that they craved for.  
 As for The Snap Sideloader, it could be improved drastically, from the user experience to the functionality, not to mention some bugfixing wouldn't hurt. But honestly, I am not sure TSS will see much improvement because I am pretty content with what I have achieved here. To put it another way, if you want to fork TSS and make it better than it ever was, or if you want to make your own client that is compatible with TSS-format repositories, then I salute you and you are more than welcome to do that.  

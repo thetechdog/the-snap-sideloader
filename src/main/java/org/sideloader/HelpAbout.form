@@ -117,6 +117,7 @@
                     <item value="OkHttp3"/>
                     <item value="ImgScalr"/>
                     <item value="Apache Commons Text"/>
+                    <item value="JetBrains UI Designer"/>
                   </model>
                 </properties>
               </component>

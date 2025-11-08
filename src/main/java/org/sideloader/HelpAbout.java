@@ -31,21 +31,9 @@ public class HelpAbout extends JDialog {
                 "of the screen you can see a search bar and a search button. On the side you can see a few buttons as well as a list of categories, if toggled on. In the center is where" +
                 "you will see the content pages. Some content pages will lead to other pages. Use the \"Home\" button on the sidebar to go back to the Front page.\n" +
                 "When you're done, click the \"Exit\" button to close the program.");
-        infoArea2.setText("The Snap Sideloader\n" +
-                "Copyright 2024-2025 Andrei Ionel\n" +
-                "\n" +
-                "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                "you may not use this file except in compliance with the License.\n" +
-                "You may obtain a copy of the License at\n" +
-                "\n" +
-                "    http://www.apache.org/licenses/LICENSE-2.0\n" +
-                "\n" +
-                "Unless required by applicable law or agreed to in writing, software\n" +
-                "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                "See the License for the specific language governing permissions and\n" +
-                "limitations under the License.\n\n" +
-                "Source code available at: https://github.com/thetechdog/the-snap-sideloader");
+        infoArea2.setText("----- The Snap Sideloader\n" +
+                apacheLicense("2024-2025", "Andrei Ionel") +
+                "\nSource code available at: https://github.com/thetechdog/the-snap-sideloader");
         textScroll.getVerticalScrollBar().setValue(0);
         infoArea2.setCaretPosition(0);
         tssIco.setVisible(true);
@@ -68,21 +56,9 @@ public class HelpAbout extends JDialog {
             tssIco.setVisible(false);
             switch (aboutCombo.getSelectedIndex()) {
                 case 0:
-                    aboutText = "The Snap Sideloader\n" +
-                            "Copyright 2024-2025 Andrei Ionel\n" +
-                            "\n" +
-                            "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "you may not use this file except in compliance with the License.\n" +
-                            "You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "    http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "Unless required by applicable law or agreed to in writing, software\n" +
-                            "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "See the License for the specific language governing permissions and\n" +
-                            "limitations under the License.\n\n" +
-                            "Source code available at: https://github.com/thetechdog/the-snap-sideloader";
+                    aboutText = "----- The Snap Sideloader\n" +
+                            apacheLicense("2024-2025", "Andrei Ionel") +
+                            "\nSource code available at: https://github.com/thetechdog/the-snap-sideloader";
                     tssIco.setVisible(true);
                     break;
                 case 1:
@@ -118,38 +94,16 @@ public class HelpAbout extends JDialog {
                             "EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.";
                     break;
                 case 2:
-                    aboutText = "Copyright 2008 Google Inc.\n" +
-                            "\n" +
-                            "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "you may not use this file except in compliance with the License.\n" +
-                            "You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "    http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "Unless required by applicable law or agreed to in writing, software\n" +
-                            "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "See the License for the specific language governing permissions and\n" +
-                            "limitations under the License.";
+                    aboutText = apacheLicense("2008", "Google Inc.");
                     break;
                 case 3:
                     aboutText = "This product includes the following softwares developed by David Crawshaw.\n" +
                             "See LICENSE.zentus file.\n" +
                             "\n" +
                             "And also, NestedVM (Apache License Version 2.0) is used inside sqlite-\n" +
-                            "Copyright 2025 Xerial and contributors\n" +
+                            "Copyright 2025 \n" +
                             "\n" +
-                            "   Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "   you may not use this file except in compliance with the License.\n" +
-                            "   You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "       http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "   Unless required by applicable law or agreed to in writing, software\n" +
-                            "   distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "   See the License for the specific language governing permissions and\n" +
-                            "   limitations under the License.\n" +
+                            apacheLicense("2025", "Xerial and contributors") +
                             "Original version (BSD 2-Clause):\n" +
                             "Copyright (c) 2006, David Crawshaw.  All rights reserved.\n" +
                             "\n" +
@@ -207,53 +161,16 @@ public class HelpAbout extends JDialog {
                             "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.";
                     break;
                 case 5:
-                    aboutText = "Copyright 2019 Square, Inc.\n" +
-                            "\n" +
-                            "Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "you may not use this file except in compliance with the License.\n" +
-                            "You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "   http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "Unless required by applicable law or agreed to in writing, software\n" +
-                            "distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "See the License for the specific language governing permissions and\n" +
-                            "limitations under the License.";
+                    aboutText = apacheLicense("2019", "Square, Inc.");
                     break;
                 case 6:
-                    aboutText = "Copyright 2025 Rkalla and contributors\n" +
-                            "\n" +
-                            "   Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "   you may not use this file except in compliance with the License.\n" +
-                            "   You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "       http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "   Unless required by applicable law or agreed to in writing, software\n" +
-                            "   distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "   See the License for the specific language governing permissions and\n" +
-                            "   limitations under the License.";
+                    aboutText = apacheLicense("2025", "Rkalla and contributors");
                     break;
                 case 7:
-                    aboutText = "Apache Commons Text\n" +
-                            "Copyright 2014-2025 The Apache Software Foundation\n" +
-                            "\n" +
-                            "This product includes software developed at\n" +
-                            "The Apache Software Foundation (https://www.apache.org/).\n\n" +
-                            "   Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
-                            "   you may not use this file except in compliance with the License.\n" +
-                            "   You may obtain a copy of the License at\n" +
-                            "\n" +
-                            "       http://www.apache.org/licenses/LICENSE-2.0\n" +
-                            "\n" +
-                            "   Unless required by applicable law or agreed to in writing, software\n" +
-                            "   distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                            "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                            "   See the License for the specific language governing permissions and\n" +
-                            "   limitations under the License.";
+                    aboutText = apacheLicense("2014-2025", "The Apache Software Foundation");
                     break;
+                case 8:
+                    aboutText = apacheLicense("2008-2025", "JetBrains s.r.o");
                 default:
                     infoArea2.setText("Invalid combo box index!!");
 
@@ -265,6 +182,23 @@ public class HelpAbout extends JDialog {
 
         tabbedPane.remove(guidePanel);
         tabbedPane.add(new JLabel("Under construction..."));
+
+    }
+
+    private String apacheLicense(String date, String author) {
+        return "Copyright " + date + " " + author + " \n" +
+                "\n" +
+                "   Licensed under the Apache License, Version 2.0 (the \"License\");\n" +
+                "   you may not use this file except in compliance with the License.\n" +
+                "   You may obtain a copy of the License at\n" +
+                "\n" +
+                "       http://www.apache.org/licenses/LICENSE-2.0\n" +
+                "\n" +
+                "   Unless required by applicable law or agreed to in writing, software\n" +
+                "   distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
+                "   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
+                "   See the License for the specific language governing permissions and\n" +
+                "   limitations under the License.\n";
     }
 
     {
@@ -330,6 +264,7 @@ public class HelpAbout extends JDialog {
         defaultComboBoxModel2.addElement("OkHttp3");
         defaultComboBoxModel2.addElement("ImgScalr");
         defaultComboBoxModel2.addElement("Apache Commons Text");
+        defaultComboBoxModel2.addElement("JetBrains UI Designer");
         aboutCombo.setModel(defaultComboBoxModel2);
         aboutPanel.add(aboutCombo, cc.xy(3, 1));
         final JLabel label2 = new JLabel();
